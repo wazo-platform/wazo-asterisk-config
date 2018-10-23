@@ -1,0 +1,5 @@
+wazo-asterisk-config (1.0) wazo-dev-stretch; urgency=medium
+
+  * Split asterisk configuration from xivo-config
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Tue, 23 Oct 2018 10:52:32 -0400
