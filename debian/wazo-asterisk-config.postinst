@@ -9,9 +9,7 @@ case "$1" in
     configure)
         if [ -d /run/systemd/system ]; then
             systemctl --system daemon-reload >/dev/null || true
-            if systemctl is-active --quiet asterisk; then
-               systemctl restart asterisk || true
-            fi
+            deb-systemd-invoke restart asterisk
         fi
     ;;
     abort-upgrade|abort-remove|abort-deconfigure)
