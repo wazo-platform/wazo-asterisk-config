@@ -1,0 +1,12 @@
+#! /bin/sh
+
+if [ "$1" = "remove" ]; then
+    if [ -d /run/systemd/system ]; then
+        systemctl --system daemon-reload >/dev/null || true
+        if systemctl is-active --quiet asterisk; then
+          systemctl restart asterisk || true
+        fi
+    fi
+fi
+
+#DEBHELPER#
