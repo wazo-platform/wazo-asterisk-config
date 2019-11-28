@@ -11,6 +11,7 @@ case "$1" in
             systemctl --system daemon-reload >/dev/null || true
             deb-systemd-invoke restart asterisk
         fi
+        chmod g+s /etc/asterisk
     ;;
     abort-upgrade|abort-remove|abort-deconfigure)
     ;;
