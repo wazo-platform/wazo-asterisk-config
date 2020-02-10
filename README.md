@@ -1,2 +1,3 @@
 # wazo-asterisk-config
-Asterisk configuration files for Wazo
+
+Asterisk configuration files for Wazo Platform

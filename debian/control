@@ -8,7 +8,8 @@ Standards-Version: 4.2.1
 Package: wazo-asterisk-config
 Architecture: all
 Section: comm
-Depends: ${misc:Depends}
+Pre-Depends: wazo-confgend
+Depends: ${misc:Depends}, wazo-confgend-client
 Conflicts: asterisk-config, xivo-config (<= 18.12~20181022.132440.ae21958.deb9)
 Description: Asterisk configuration files for Wazo
  Wazo is a system based on a powerful IPBX, to bring an easy to
