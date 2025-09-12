@@ -16,7 +16,9 @@ pipeline {
     stage('Debian build and deploy') {
       steps {
         build job: 'build-package-no-arch', parameters: [
-          string(name: 'PACKAGE', value: "${JOB_NAME}"),
+          string(name: 'PACKAGE', value: "wazo-asterisk-config"),
+          string(name: "BRANCH", value: "bookworm"),
+          string(name: "DISTRIBUTION", value: "wazo-dev-bookworm"),
         ]
       }
     }
@@ -24,13 +26,13 @@ pipeline {
       steps {
         dir('./asterisk') {
           git(url: "https://github.com/wazo-platform/asterisk")
-          sh "docker build --no-cache -t wazoplatform/asterisk:latest ."
+          sh "docker build --no-cache -t wazoplatform/asterisk:bookworm ."
         }
       }
     }
     stage('Docker publish') {
       steps {
-        sh "docker push wazoplatform/asterisk:latest"
+        sh "docker push wazoplatform/asterisk:bookworm"
       }
     }
   }
