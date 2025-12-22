@@ -8,7 +8,7 @@ set -e
 case "$1" in
     configure)
         odbcinst -i -s -f /usr/share/wazo-asterisk-config/odbc/odbc.ini.template -l -v
-        xivo-update-odbcinst-config
+        wazo-update-odbcinst-config
 
         if [ -d /run/systemd/system ]; then
             systemctl --system daemon-reload >/dev/null || true

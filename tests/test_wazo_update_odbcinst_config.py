@@ -13,7 +13,7 @@ CONFIG_FILE_PATH = '/etc/odbcinst.ini'
 
 @pytest.fixture
 def update_odbcinst_config():
-    yield load_from_sbin('xivo-update-odbcinst-config')
+    yield load_from_sbin('wazo-update-odbcinst-config')
 
 
 def test_unmodified(update_odbcinst_config):
