@@ -1,3 +1,4 @@
-dialplan usr/share/wazo-asterisk-config
+dialplan odbc usr/share/wazo-asterisk-config
 etc/* etc
+sbin usr
 service/wazo-asterisk-config.conf lib/systemd/system/asterisk.service.d

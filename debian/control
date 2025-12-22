@@ -8,7 +8,7 @@ Standards-Version: 4.2.1
 Package: wazo-asterisk-config
 Architecture: all
 Section: comm
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, odbc-postgresql, odbcinst
 Conflicts: asterisk-config
 Description: Asterisk configuration files for Wazo
  Wazo is a system based on a powerful IPBX, to bring an easy to

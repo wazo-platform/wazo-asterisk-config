@@ -1,0 +1,6 @@
+[xivo]
+Description = Connection to the database used by Wazo
+Driver      = PostgreSQL ANSI
+Trace       = No
+Database    = asterisk
+Servername  = 127.0.0.1
