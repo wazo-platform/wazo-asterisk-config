@@ -8,8 +8,10 @@ Standards-Version: 4.2.1
 Package: wazo-asterisk-config
 Architecture: all
 Section: comm
-Depends: ${misc:Depends}
-Conflicts: asterisk-config
+Depends: ${misc:Depends}, odbc-postgresql, odbcinst, python3
+Conflicts: asterisk-config, xivo-config (<< 26.02~20260115)
+Breaks: xivo-config (<< 26.02~20260115)
+Replaces: xivo-config (<< 26.02~20260115)
 Description: Asterisk configuration files for Wazo
  Wazo is a system based on a powerful IPBX, to bring an easy to
  install solution for telephony and related services.

@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/bash
 # postinst script
 #
 # see: dh_installdeb(1)
@@ -7,11 +7,20 @@ set -e
 
 case "$1" in
     configure)
+        odbcinst -i -s -f /usr/share/wazo-asterisk-config/odbc/odbc.ini.template -l -v
+        wazo-update-odbcinst-config
+
         if [ -d /run/systemd/system ]; then
             systemctl --system daemon-reload >/dev/null || true
             deb-systemd-invoke restart asterisk
         fi
         chmod g+s /etc/asterisk
+
+        previous_version="$2"
+        if [[ -z "${previous_version}" ]]; then
+            ln -sf /etc/nginx/locations/https-available/asterisk \
+                   /etc/nginx/locations/https-enabled/asterisk
+        fi
     ;;
     abort-upgrade|abort-remove|abort-deconfigure)
     ;;
